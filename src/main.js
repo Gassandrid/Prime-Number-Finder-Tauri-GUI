@@ -5,7 +5,7 @@ let greetMsgEl;
 
 async function greet() {
   // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-  console.log("Inside greet function"); // Add console log here
+  greetMsgEl.textContent = "Inside greet function";
   greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
 }
 
@@ -24,6 +24,15 @@ let primeTimeEl;
 let primeLargestEl;
 
 async function prime() {
+  if (primeInputEl.value === "") {
+    console.error("Input cannot be empty");
+    return;
+  } else if (isNaN(primeInputEl.value)) {
+    console.error("Input must be a number");
+    return;
+  }
+
+  // Your existing code here
   const [msg, time, largest] = await invoke("prime", { number: primeInputEl.value });
   primeMsgEl.textContent = msg;
   primeTimeEl.textContent = time;
