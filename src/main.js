@@ -24,14 +24,10 @@ let primeTimeEl;
 let primeLargestEl;
 
 async function prime() {
-  console.log("Inside prime function"); // Add console log here
-  const number = primeInputEl.value;
-  const result = await invoke('prime', number);
-  
-  // update your GUI with the result
-  primeTimeEl.textContent = result[0];
-  primeMsgEl.textContent = result[1];
-  primeLargestEl.textContent = result[2];
+  const [msg, time, largest] = await invoke("prime", { number: primeInputEl.value });
+  primeMsgEl.textContent = msg;
+  primeTimeEl.textContent = time;
+  primeLargestEl.textContent = largest;
 }
 
 window.addEventListener("DOMContentLoaded", () => {

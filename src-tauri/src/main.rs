@@ -13,18 +13,16 @@ fn greet(name: &str) -> String {
 }
 
 #[tauri::command]
-fn prime(number: u32) -> (String, String, String) {
-    let start_time = Instant::now();
+fn prime(number: &str) -> (String, String, String) {
+    let number: u32 = number.parse().unwrap();
+    let start = Instant::now();
+    let result = prime_finder::eratos(number);
+    let duration = start.elapsed();
     
-    let primes = prime_finder::eratos(number);
-    let end_time = start_time.elapsed();
-    let time_taken = end_time.as_millis();
-
-    let time_taken_string = format!("Time taken: {:?}", time_taken);
-    let num_primes_string = format!("Number of primes: {}", primes.len());
-    let largest_prime_string = format!("Largest prime: {}", primes.last().unwrap());
-
-    (time_taken_string, num_primes_string, largest_prime_string)
+    let total_primes_string = format!("Total primes: {}", result.len());
+    let duration_string = format!("Time elapsed: {:?}", duration);
+    let largest_prime_string = format!("Largest prime: {}", result.last().unwrap());
+    (total_primes_string, duration_string, largest_prime_string)
 }
 
 
