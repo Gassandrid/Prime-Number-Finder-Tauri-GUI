@@ -1,6 +1,6 @@
 # Tauri + Vanilla
 
-(Currently not working) An attempt at creating a Tauri GUI for a Rust prime finding algorithm.
+(Now Working) An attempt at creating a Tauri GUI for a Rust prime finding algorithm.
 
 ## Recommended IDE Setup
 
