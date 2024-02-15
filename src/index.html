@@ -7,31 +7,63 @@
     <title>Tauri App</title>
     <script type="module" src="/main.js" defer></script>
     <style>
-      .logo.vanilla:hover {
+        .logo.vanilla:hover{
         filter: drop-shadow(0 0 2em #ffe21c);
       }
+
+        .fancy-title {
+            font-size: 3em;
+            text-align: center;
+            margin: 0;
+            padding: 1em 0;
+            color: #ffe21c;
+            text-shadow: 0 0 1em #ffe21c;
+        }
+
+        .submit-button {
+            padding: 0.5em 1em;
+            margin: 0 0 0 1em;
+            border: none;
+            background-color: #ffe21c;
+            color: #000;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 10em;
+        }
+        .form-rows {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 3em 0;
+            gap: 0em;
+        }
+
     </style>
   </head>
 
   <body>
     <div class="container">
-      <h1>Test Application</h1>
+      <h1 class="fancy-title">Primes Finder</h1>
 
+      <span class="form-rows">
       <form class="row" id="greet-form">
         <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
+        <button class="submit-button" type="submit">Greet</button>
       </form>
 
       <p id="greet-msg"></p>
 
       <form class="row" id="prime-form">
         <input id="prime-input" placeholder="Enter a number..." />
-        <button type="submit">Check Prime</button>
+        <button class="submit-button" type="submit">Check Prime</button>
       </form>
 
       <p id="prime-msg"></p>
       <p id="prime-time"></p>
       <p id="prime-largest"></p>
     </div>
+  </span>
   </body>
 </html>
